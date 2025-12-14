@@ -4,6 +4,8 @@ export type IOrder = 'asc' | 'desc'
 
 export type IRequestClientFormat = 'paginatedList'
 
+export type ILoadingStatus = 'loading' | 'success' | 'error' | undefined
+
 export interface IPaginatedListRequest<IFilter> {
   filters?: IFilter
   page: number
