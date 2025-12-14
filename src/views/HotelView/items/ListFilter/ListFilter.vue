@@ -1,12 +1,29 @@
 <script setup lang="ts">
 // Packages
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+
+// Stores
+import useHotelStore from '@/stores/useHotelStore'
 
 // Utils
 import { ORDER_OPTIONS } from './utils'
 
-const orderBy = ref<string | undefined>('totalPrice')
+const { params, setParams } = useHotelStore()
+
+const orderByInitialValue = ORDER_OPTIONS.find(({ value }) => value === params.sort)
+
+const orderBy = ref<{ label: string; value: string } | undefined>(orderByInitialValue)
 const name = ref<string | undefined>(undefined)
+
+watch(
+  [name, orderBy],
+  ([nameValue, orderByValue]) =>
+    setParams({
+      filters: { ...params.filters, name: nameValue },
+      sort: orderByValue?.value,
+    }),
+  { deep: true },
+)
 </script>
 
 <template>

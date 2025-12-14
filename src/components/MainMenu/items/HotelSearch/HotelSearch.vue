@@ -1,6 +1,11 @@
 <script setup lang="ts">
 // Packages
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+
+// Stores
+import useHotelStore from '@/stores/useHotelStore'
+
+const { params, setParams } = useHotelStore()
 
 const placeId = ref<{ label: string; value: string } | undefined>(undefined)
 
@@ -11,8 +16,13 @@ const options = [
 ]
 
 const onSubmit = () => {
-  console.log(placeId.value?.value)
+  setParams({ filters: { ...params.filters, placeId: placeId.value?.value } })
 }
+
+watch(
+  () => placeId.value,
+  (value) => !value && setParams({ filters: { placeId: undefined } }),
+)
 </script>
 
 <template>

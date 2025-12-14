@@ -1,6 +1,24 @@
 <script setup lang="ts">
+// Packages
+import { watch } from 'vue'
+
+// Composables
+import useHotels from '@/composables/useHotels'
+
 // Items
 import ListFilter from './items/ListFilter/ListFilter.vue'
+
+// Stores
+import useHotelStore from '@/stores/useHotelStore'
+
+const store = useHotelStore()
+const { handleGetHotelList } = useHotels()
+
+watch(
+  () => store.params,
+  () => handleGetHotelList(),
+  { immediate: true, deep: true },
+)
 </script>
 
 <template>
@@ -8,7 +26,10 @@ import ListFilter from './items/ListFilter/ListFilter.vue'
     <div class="listFilterWrapper">
       <ListFilter />
     </div>
-    <h1>Hotel</h1>
+    <h2>hotel list:</h2>
+    <div v-for="hotel in store.list.data" :key="hotel.id">
+      <p>{{ hotel.name }}</p>
+    </div>
   </div>
 </template>
 

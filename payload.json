@@ -29,7 +29,7 @@
       "hasBreakFast": true,
       "hasRefundableRoom": true,
       "district": "Centro",
-      "placeId": "101"
+      "placeId": "ChIJiQHsW0mZwokR3YlJ5pBHd2Q"
     },
     {
       "id": 2,
@@ -43,7 +43,7 @@
       "hasBreakFast": false,
       "hasRefundableRoom": false,
       "district": "Praia",
-      "placeId": "102"
+      "placeId": "ChIJE9on3F3HwoAR9AhGJW_fL-I"
     },
     {
       "id": 3,
@@ -57,7 +57,7 @@
       "hasBreakFast": true,
       "hasRefundableRoom": true,
       "district": "Praia",
-      "placeId": "103"
+      "placeId": "ChIJ0X31pV1-4pQRk7h6e4g8f6M"
     }
   ]
 }
