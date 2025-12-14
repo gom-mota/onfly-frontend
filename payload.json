@@ -1,0 +1,63 @@
+{
+  "cities": [
+    {
+      "placeId": "ChIJiQHsW0mZwokR3YlJ5pBHd2Q",
+      "name": "Rio de Janeiro",
+      "state": { "name": "Rio de Janeiro", "uf": "RJ" }
+    },
+    {
+      "placeId": "ChIJE9on3F3HwoAR9AhGJW_fL-I",
+      "name": "São Paulo",
+      "state": { "name": "São Paulo", "uf": "SP" }
+    },
+    {
+      "placeId": "ChIJ0X31pV1-4pQRk7h6e4g8f6M",
+      "name": "Salvador",
+      "state": { "name": "Bahia", "uf": "BA" }
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel Paraíso",
+      "stars": 3,
+      "totalPrice": 1200.0,
+      "dailyPrice": 300.0,
+      "tax": 0.1,
+      "thumb": "https://example.com/images/hotel1.jpg",
+      "amenities": ["Wi-Fi", "Estacionamento", "Academia", "Piscina", "Spa"],
+      "hasBreakFast": true,
+      "hasRefundableRoom": true,
+      "district": "Centro",
+      "placeId": "101"
+    },
+    {
+      "id": 2,
+      "name": "Hotel Solare",
+      "stars": 4,
+      "totalPrice": 800.0,
+      "dailyPrice": 200.0,
+      "tax": 0.08,
+      "thumb": "https://example.com/images/hotel2.jpg",
+      "amenities": ["Wi-Fi", "Estacionamento", "Restaurante"],
+      "hasBreakFast": false,
+      "hasRefundableRoom": false,
+      "district": "Praia",
+      "placeId": "102"
+    },
+    {
+      "id": 3,
+      "name": "Pousada Mar Azul",
+      "stars": 35,
+      "totalPrice": 500.0,
+      "dailyPrice": 125.0,
+      "tax": 0.05,
+      "thumb": "https://example.com/images/hotel3.jpg",
+      "amenities": ["Wi-Fi", "Estacionamento", "Ar-condicionado"],
+      "hasBreakFast": true,
+      "hasRefundableRoom": true,
+      "district": "Praia",
+      "placeId": "103"
+    }
+  ]
+}
