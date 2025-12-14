@@ -1,7 +1,11 @@
 @import './variables.scss';
 
+* {
+  font-family: $font-family;
+}
+
 #app {
-  max-width: 1200px;
+  max-width: $breakpoint-main-container;
   display: flex;
   flex-direction: column;
   gap: 2rem;
