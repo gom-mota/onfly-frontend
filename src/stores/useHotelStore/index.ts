@@ -10,8 +10,9 @@ import { INITIAL_LIST, INITIAL_PARAMS } from './utils'
 
 const useHotelStore = defineStore('hotel', () => {
   const params = reactive<IHotelStore['params']>(INITIAL_PARAMS)
-
   const list = ref<IHotelStore['list']>(INITIAL_LIST)
+
+  const selectedHotel = ref<IHotelStore['selectedHotel']>(undefined)
 
   const setParams = (newParams: Partial<IHotelStore['params']>) => {
     Object.assign(params, newParams)
@@ -21,7 +22,11 @@ const useHotelStore = defineStore('hotel', () => {
     list.value = data
   }
 
-  return { params, setParams, list, setList }
+  const setSelectedHotel = (data: IHotelStore['selectedHotel']) => {
+    selectedHotel.value = data
+  }
+
+  return { params, setParams, list, setList, selectedHotel, setSelectedHotel }
 })
 
 export default useHotelStore

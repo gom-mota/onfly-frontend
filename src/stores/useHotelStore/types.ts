@@ -7,4 +7,6 @@ export interface IHotelStore {
   setParams: (params: Partial<IPaginatedListRequest<IHotelFilters>>) => void
   list: IPaginatedListResponse<IHotelData>
   setList: (data: IPaginatedListResponse<IHotelData>) => void
+  selectedHotel: IHotelData | undefined
+  setSelectedHotel: (data: IHotelData | undefined) => void
 }
