@@ -1,10 +1,6 @@
-$primary: #1976d2;
-$secondary: #26a69a;
-$accent: #9c27b0;
+@use './variables.scss' as *;
 
-$dark: #1d1d1d;
-
-$positive: #21ba45;
-$negative: #c10015;
-$info: #31ccec;
-$warning: #f2c037;
+$primary: $color-primary-100;
+$secondary: $color-primary-200;
+$positive: $color-success-100;
+$info: $color-info-100;
