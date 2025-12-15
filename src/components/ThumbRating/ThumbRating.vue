@@ -5,14 +5,14 @@ const MAX_STARS = 5
 </script>
 
 <template>
-  <QImg :src="imagePath" fit="fill" class="border-radius-inherit">
+  <QImg :src="imagePath" fit="cover" class="border-radius-inherit" height="100%">
     <div style="background-color: transparent">
       <div class="rating-container q-pa-sm shadow-2">
         <QIcon
           v-for="i in MAX_STARS"
           :key="i"
           name="star"
-          :color="i <= stars ? 'primary' : 'grey-4'"
+          :color="i <= stars ? 'secondary' : 'grey-4'"
           size="14px"
         />
       </div>
