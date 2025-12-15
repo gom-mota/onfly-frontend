@@ -12,6 +12,21 @@ const router = createRouter({
       name: 'hotel',
       component: HotelView,
     },
+    {
+      path: '/flight',
+      name: 'flight',
+      redirect: '/hotel',
+    },
+    {
+      path: '/car',
+      name: 'car',
+      redirect: '/hotel',
+    },
+    {
+      path: '/bus',
+      name: 'bus',
+      redirect: '/hotel',
+    },
   ],
 })
 
