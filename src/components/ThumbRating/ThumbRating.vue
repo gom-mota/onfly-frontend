@@ -7,7 +7,7 @@ const MAX_STARS = 5
 <template>
   <QImg :src="imagePath" fit="cover" class="border-radius-inherit" height="100%">
     <div style="background-color: transparent">
-      <div class="rating-container q-pa-sm shadow-2">
+      <div class="rating">
         <QIcon
           v-for="i in MAX_STARS"
           :key="i"
@@ -21,11 +21,13 @@ const MAX_STARS = 5
 </template>
 
 <style scoped lang="scss">
-.rating-container {
+.rating {
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  padding: $spacing-small;
   background: white;
-  border-radius: 50px;
+  box-shadow: $shadow;
+  border-radius: $border-radius-large;
 }
 </style>

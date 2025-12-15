@@ -2,16 +2,12 @@
   font-family: $font-family;
 }
 
-#app {
-  max-width: $breakpoint-main-container;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  height: 100vh;
-  box-sizing: border-box;
-  margin: auto;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
-  background-color: $color-background;
+  background-color: $color-background-primary;
 }

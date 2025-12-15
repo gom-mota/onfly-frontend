@@ -9,8 +9,25 @@ $color-info-300: #84858c;
 $color-info-400: #696a71;
 $color-info-500: #58585f;
 $color-info-600: #434347;
+$color-white: white;
 
-$color-background: $color-primary-100;
+$color-background-primary: $color-primary-100;
+$color-background-secondary: #f3f3f3;
+
+$border-size: 2px;
+$border-color: #dfdfdf;
+
+$shadow: 0 2px 6px #0000002e;
+
+$border-radius-small: 12px;
+$border-radius-regular: 14px;
+$border-radius-large: 20px;
+
+$spacing-small: 0.4rem;
+$spacing-regular: 0.8rem;
+$spacing-medium: 1.2rem;
+$spacing-large: 1.6rem;
+$spacing-xlarge: 2rem;
 
 $breakpoint-main-container: 1200px;
 

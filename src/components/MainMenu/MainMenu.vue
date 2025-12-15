@@ -14,14 +14,14 @@ const selectedTabContent = computed(() => TAB_ITEMS[selectedTabName.value]?.cont
 </script>
 
 <template>
-  <div class="q-pa-md q-mx-xl q-mt-lg bg-white rounded-borders">
-    <div class="q-gutter-y-md" style="max-width: 600px">
+  <div class="main-menu">
+    <div>
       <QTabs
         v-model="selectedTabName"
         inline-label
-        class="text-black shadow-2"
         align="left"
         active-color="primary"
+        class="text-grey-8"
       >
         <QRouteTab
           v-for="[name, { label, icon, disable }] in Object.entries(TAB_ITEMS)"
@@ -35,10 +35,21 @@ const selectedTabContent = computed(() => TAB_ITEMS[selectedTabName.value]?.cont
       </QTabs>
     </div>
 
-    <div class="q-pa-md">
+    <div>
       <component :is="selectedTabContent" />
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  border-radius: $border-radius-large;
+  max-width: $breakpoint-main-container;
+  padding: $spacing-medium;
+  box-shadow: $shadow;
+  gap: $spacing-regular;
+}
+</style>

@@ -55,9 +55,9 @@ const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
         </div>
 
         <div class="column">
-          <div class="column q-mb-sm">
+          <div class="column q-mb-md">
             <div class="row justify-between">
-              <div class="text-caption text-grey">Diarias</div>
+              <div class="text-caption text-grey">Diárias</div>
               <div class="text-caption text-grey">
                 {{ formattedDailyPrice }}
               </div>
@@ -74,8 +74,7 @@ const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
           <QBtn
             label="Ver detalhes"
             color="primary"
-            size="sm"
-            class="q-mt-sm"
+            size="md"
             rounded
             @click="emit('click-details')"
             :uppercase="false"
@@ -88,13 +87,13 @@ const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
 
 <style scoped lang="scss">
 .hotel-card {
-  border-radius: var(--q-radius-lg);
   background-color: white;
-  border-radius: 1rem;
+  border-radius: $border-radius-large;
   display: flex;
   flex-direction: row;
-  min-height: 210px;
-  border: 1px solid #e0e0e0;
+  min-height: 220px;
+  border: 1px solid $border-color;
+  width: 100%;
 }
 
 .hotel-card__wrapper {
@@ -111,37 +110,37 @@ const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
 .hotel-card__observations {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $spacing-regular;
 }
 
 .hotel-card__details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-left: 2px solid #e0e0e0;
-  padding: 1rem 1.5rem;
-  width: 180px;
+  border-left: $border-size solid #f0f0f0;
+  padding: $spacing-regular $spacing-large;
+  width: 200px;
 }
 
 .hotel-card__benefits {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: $spacing-small;
   color: $color-success-100;
 }
 
 .hotel-card__main {
-  padding: 1rem 1.5rem;
+  padding: $spacing-regular $spacing-large;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: $spacing-small;
   justify-content: space-between;
 }
 
 .hotel-card__thumb {
   width: 260px;
   min-width: 160px;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: $border-radius-large 0 0 $border-radius-large;
 }
 </style>

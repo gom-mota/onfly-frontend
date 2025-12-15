@@ -43,35 +43,58 @@ watch(
 </script>
 
 <template>
-  <div>
-    <QForm @submit="onSubmit">
-      <div class="q-pa-sm bg-grey-2 full-width row justify-between items-center">
-        <QSelect
-          v-model="placeId"
-          :options="placeOptions"
-          label="Destino"
-          use-input
-          placeholder="Selecione um destino"
-          style="width: 300px"
-          outlined
-          hide-selected
-          clearable
-          fill-input
-          debounce="1000"
-          @filter="
-            (inputValue, doneFn) => {
-              placeTyped = inputValue.length >= 3 ? inputValue : ''
-              doneFn(() => {})
-            }
-          "
-        />
+  <QForm @submit="onSubmit">
+    <div class="hotel-search">
+      <QSelect
+        v-model="placeId"
+        :options="placeOptions"
+        label="Destino"
+        use-input
+        placeholder="Selecione um destino"
+        hide-selected
+        clearable
+        borderless
+        fill-input
+        debounce="1000"
+        class="place-select"
+        dense
+        @filter="
+          (inputValue, doneFn) => {
+            placeTyped = inputValue.length >= 3 ? inputValue : ''
+            doneFn(() => {})
+          }
+        "
+      >
+        <template v-slot:no-option>
+          <QItem>
+            <QItemSection class="text-italic text-grey">Nenhum resultado encontrado.</QItemSection>
+          </QItem>
+        </template>
+      </QSelect>
 
-        <div>
-          <QBtn label="Buscar Hotel" type="submit" color="primary" icon="search" />
-        </div>
+      <div>
+        <QBtn label="Buscar Hotel" type="submit" color="primary" icon="search" push />
       </div>
-    </QForm>
-  </div>
+    </div>
+  </QForm>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.place-select {
+  border-radius: $border-radius-small;
+  border: $border-size solid;
+  border-color: $border-color;
+  padding: 0 $spacing-regular;
+  width: 360px;
+}
+
+.hotel-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f6;
+  border-radius: $border-radius-regular;
+  padding: $spacing-small;
+}
+</style>

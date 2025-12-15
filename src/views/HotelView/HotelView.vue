@@ -35,19 +35,15 @@ watch(
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .view-container {
-  border-radius: 80px 80px 0 0;
-  background-color: #f3f3f3;
+  padding-top: $spacing-regular;
   position: relative;
-  padding: 3rem 3.5rem;
-  height: 100%;
 }
 
 .list-filter-wrapper {
   position: absolute;
   left: 50%;
-  top: 0;
-  transform: translateX(-50%) translateY(-20px);
+  transform: translateX(-50%) translateY(-72px);
 }
 </style>

@@ -28,8 +28,8 @@ const onClickViewDetails = (data: IHotelData) => {
 </script>
 
 <template>
-  <div class="list-container">
-    <div class="column q-gutter-sm">
+  <div class="list-paginated">
+    <div class="list-data">
       <template v-if="hasListData">
         <HotelCard
           v-for="hotel in store.list.data"
@@ -57,15 +57,27 @@ const onClickViewDetails = (data: IHotelData) => {
         />
       </template>
 
-      <div v-else>Nenhum hotel encontrado.</div>
+      <div v-else class="list-data--empty">Nenhum hotel encontrado.</div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.list-container {
+<style scoped lang="scss">
+.list-paginated {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  flex: 1;
+}
+
+.list-data {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-small;
+  align-items: center;
+}
+
+.list-data--empty {
+  padding: $spacing-xlarge;
+  font-size: $font-size-title;
 }
 </style>
