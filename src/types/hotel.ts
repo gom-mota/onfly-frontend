@@ -1,3 +1,5 @@
+export type IHotelAmenities = 'pool' | 'restaurant' | 'accessibility' | 'parking' | 'wifi' | 'air'
+
 export interface IHotelData {
   id: string
   name: string
@@ -6,7 +8,7 @@ export interface IHotelData {
   dailyPrice: number
   tax: number
   thumb: string
-  amenities: string[]
+  amenities: IHotelAmenities[]
   hasBreakFast: boolean
   hasRefundableRoom: boolean
   district: string
