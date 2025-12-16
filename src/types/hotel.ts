@@ -29,3 +29,15 @@ export interface IHotelFilters {
   placeId?: string
   name?: string
 }
+
+export interface IHotelDetailsData {
+  id: number
+  name: string
+  description: string
+  stars: string
+  amenities: { key: string; label: string }[]
+  hasBreakFast: boolean
+  hasRefundableRoom: boolean
+  fullAddress: string
+  images: string[]
+}

@@ -8,6 +8,7 @@ import useHotels from '@/composables/useHotels'
 // Items
 import ListFilter from './items/ListFilter/ListFilter.vue'
 import ListPaginated from './items/ListPaginated/ListPaginated.vue'
+import HotelDetailsDialog from './items/HotelDetailsDialog/HotelDetailsDialog.vue'
 
 // Stores
 import useHotelStore from '@/stores/useHotelStore'
@@ -32,6 +33,8 @@ watch(
     </div>
 
     <ListPaginated v-model:is-open-hotel-details="isOpenHotelDetails" />
+
+    <HotelDetailsDialog v-model:is-open="isOpenHotelDetails" />
   </div>
 </template>
 

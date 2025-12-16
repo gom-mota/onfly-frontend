@@ -1,11 +1,11 @@
 // Services
-import { requestClientWithFormat } from '@/services/requestClient'
+import requestClient, { requestClientWithFormat } from '@/services/requestClient'
 
 // Stores
 import useHotelStore from '@/stores/useHotelStore'
 
 // Types
-import type { IHotelData } from '@/types/hotel'
+import type { IHotelData, IHotelDetailsData } from '@/types/hotel'
 import type { IRequestClientOptions } from '@/types/request'
 
 const useHotels = () => {
@@ -37,7 +37,20 @@ const useHotels = () => {
     }
   }
 
-  return { handleGetHotelList }
+  const handleGetHotelData = async (id: string) => {
+    try {
+      const response = await requestClient<IHotelDetailsData>({
+        method: 'get',
+        url: `/hotels_details/${id}`,
+      })
+
+      return response
+    } catch (error) {
+      throw new Error(error as string)
+    }
+  }
+
+  return { handleGetHotelList, handleGetHotelData }
 }
 
 export default useHotels
