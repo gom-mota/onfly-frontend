@@ -10,13 +10,19 @@ const props = defineProps<IHotelCardProps>()
 
 const emit = defineEmits<IHotelCardEmits>()
 
-const formattedDailyPrice = props.dailyPrice.toLocaleString('pt-BR', {
+const formattedTotalPrice = (props.totalPrice / 1000).toLocaleString('pt-BR', {
+  currency: 'BRL',
+  style: 'currency',
+  minimumFractionDigits: 0,
+})
+
+const formattedDailyPrice = (props.dailyPrice / 1000).toLocaleString('pt-BR', {
   currency: 'BRL',
   style: 'currency',
   minimumFractionDigits: 2,
 })
 
-const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
+const formattedTaxes = (props.taxes / 1000).toLocaleString('pt-BR', {
   currency: 'BRL',
   style: 'currency',
   minimumFractionDigits: 2,
@@ -51,7 +57,7 @@ const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
       <div class="hotel-card__details">
         <div class="column">
           <div class="text-caption text-grey-8">Por dia</div>
-          <div class="text-h6 text-primary text-weight-bold">R$ {{ totalPrice }}</div>
+          <div class="text-h6 text-primary text-weight-bold">{{ formattedTotalPrice }}</div>
         </div>
 
         <div class="column">
