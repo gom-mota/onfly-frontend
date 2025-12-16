@@ -23,7 +23,7 @@ const amenitiesList = computed(() => {
 
 <template>
   <div class="hotel-details-card__container">
-    <ThumbRating :stars="stars" :imagePath="images[0] || ''" class="hotel-details-card__image" />
+    <ThumbRating :stars="stars" :imagePath="images" class="hotel-details-card__image" />
 
     <div class="hotel-details-card__content">
       <div v-if="amenities.length > 0">
