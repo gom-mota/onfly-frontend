@@ -11,16 +11,16 @@ import useHotelStore from '@/stores/useHotelStore'
 // Utils
 import { mountPlaceOptions } from './utils'
 
-const { params, setParams } = useHotelStore()
+const { setFilters } = useHotelStore()
 
 const { handleGetCitiesList } = useCities()
 
-const placeId = ref<{ label: string; value: string } | undefined>(undefined)
+const placeId = ref<{ label: string; value: number } | undefined>(undefined)
 const placeTyped = ref<string>('')
 const placeOptions = ref<Array<{ label: string; value: number }>>([])
 
 const onSubmit = () => {
-  setParams({ filters: { ...params.filters, placeId: placeId.value?.value } })
+  setFilters({ placeId: placeId.value?.value })
 }
 
 const handleSetPlaceOptions = async () => {
@@ -32,7 +32,7 @@ const handleSetPlaceOptions = async () => {
 
 watch(
   () => placeId.value,
-  (value) => !value && setParams({ filters: { placeId: undefined } }),
+  (value) => !value && setFilters({ placeId: undefined }),
 )
 
 watch(

@@ -8,22 +8,16 @@ import useHotelStore from '@/stores/useHotelStore'
 // Utils
 import { ORDER_OPTIONS } from './utils'
 
-const { params, setParams } = useHotelStore()
+const { params, setParams, setFilters } = useHotelStore()
 
 const orderByInitialValue = ORDER_OPTIONS.find(({ value }) => value === params.sort)
 
 const orderBy = ref<{ label: string; value: string } | undefined>(orderByInitialValue)
 const name = ref<string | undefined>(undefined)
 
-watch(
-  [name, orderBy],
-  ([nameValue, orderByValue]) =>
-    setParams({
-      filters: { ...params.filters, name: nameValue },
-      sort: orderByValue?.value,
-    }),
-  { deep: true },
-)
+watch(name, () => setFilters({ name: name.value }))
+
+watch(orderBy, () => setParams({ sort: orderBy.value?.value }))
 </script>
 
 <template>

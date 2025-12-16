@@ -9,4 +9,5 @@ export interface IHotelStore {
   setList: (data: IPaginatedListResponse<IHotelData>) => void
   selectedHotel: IHotelData | undefined
   setSelectedHotel: (data: IHotelData | undefined) => void
+  setFilters: (filters: IHotelFilters) => void
 }

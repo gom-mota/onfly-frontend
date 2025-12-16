@@ -4,6 +4,7 @@ import { defineStore } from 'pinia'
 
 // Types
 import type { IHotelStore } from './types'
+import type { IHotelFilters } from '@/types/hotel'
 
 // Utils
 import { INITIAL_LIST, INITIAL_PARAMS } from './utils'
@@ -14,8 +15,13 @@ const useHotelStore = defineStore('hotel', () => {
 
   const selectedHotel = ref<IHotelStore['selectedHotel']>(undefined)
 
-  const setParams = (newParams: Partial<IHotelStore['params']>) => {
-    Object.assign(params, newParams)
+  const setParams = (values: Partial<IHotelStore['params']>) => {
+    Object.assign(params, values)
+  }
+
+  const setFilters = (values: IHotelFilters) => {
+    params.filters = { ...params.filters, ...values }
+    params.page = 1
   }
 
   const setList = (data: IHotelStore['list']) => {
@@ -26,7 +32,15 @@ const useHotelStore = defineStore('hotel', () => {
     selectedHotel.value = data
   }
 
-  return { params, setParams, list, setList, selectedHotel, setSelectedHotel }
+  return {
+    params,
+    setParams,
+    list,
+    setList,
+    selectedHotel,
+    setSelectedHotel,
+    setFilters,
+  }
 })
 
 export default useHotelStore

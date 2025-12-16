@@ -26,7 +26,7 @@ export interface IHotelData {
 }
 
 export interface IHotelFilters {
-  placeId?: string
+  placeId?: number
   name?: string
 }
 
