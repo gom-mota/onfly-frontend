@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Packages
+import { computed } from 'vue'
+
 // Components
 import AmenityIcon from '../AmenityIcon/AmenityIcon.vue'
 import ThumbRating from '../ThumbRating/ThumbRating.vue'
@@ -6,9 +9,16 @@ import ThumbRating from '../ThumbRating/ThumbRating.vue'
 // Types
 import type { IHotelAmenities, IHotelDetailsData } from '@/types/hotel'
 
+// Utils
+import { checkIfArrayIsValid } from '@/utils/array'
+
 const props = defineProps<IHotelDetailsData>()
 
-const amenitiesList = props.amenities.map(({ key }) => key) as IHotelAmenities[]
+const amenitiesList = computed(() => {
+  if (checkIfArrayIsValid(props.amenities) === false) return []
+
+  return props.amenities.map(({ key }) => key) as IHotelAmenities[]
+})
 </script>
 
 <template>

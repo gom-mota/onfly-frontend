@@ -11,7 +11,7 @@ export type IHotelAmenities =
   | 'SPA'
 
 export interface IHotelData {
-  id: string
+  id: number
   name: string
   stars: string
   totalPrice: number

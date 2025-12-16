@@ -37,11 +37,12 @@ const useHotels = () => {
     }
   }
 
-  const handleGetHotelData = async (id: string) => {
+  const handleGetHotelData = async (params: { id: number; name: string }) => {
     try {
-      const response = await requestClient<IHotelDetailsData>({
+      const response = await requestClient<IHotelDetailsData[]>({
         method: 'get',
-        url: `/hotels_details/${id}`,
+        url: `/hotels_details`,
+        params,
       })
 
       return response

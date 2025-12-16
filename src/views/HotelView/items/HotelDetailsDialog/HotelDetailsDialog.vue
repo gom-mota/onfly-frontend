@@ -14,6 +14,9 @@ import useHotelStore from '@/stores/useHotelStore'
 // Types
 import type { IHotelDetailsData } from '@/types/hotel'
 
+// Utils
+import { checkIfArrayIsValid } from '@/utils/array'
+
 const isOpen = defineModel<boolean>('isOpen')
 
 const store = useHotelStore()
@@ -25,10 +28,14 @@ const hotelDetailsData = ref<IHotelDetailsData | undefined>(undefined)
 const handleSetHotelDetailsData = async () => {
   if (!store.selectedHotel) return
 
-  const response = await handleGetHotelData(store.selectedHotel.id)
+  const response = await handleGetHotelData({
+    id: store.selectedHotel.id,
+    name: store.selectedHotel.name,
+  })
+
   const responseData = response && response.data
 
-  if (responseData) hotelDetailsData.value = responseData
+  if (checkIfArrayIsValid(responseData)) hotelDetailsData.value = responseData[0]
 }
 
 watch(
