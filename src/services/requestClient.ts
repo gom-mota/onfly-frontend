@@ -52,8 +52,6 @@ const requestClient = async <IData>(
 
   const response: Response = await fetch(endpoint, { method: method.toUpperCase() })
 
-  if (!response.ok) throw new Error(`Request failed: ${response.status}`)
-
   return {
     data: await response.json(),
     status: response.status,

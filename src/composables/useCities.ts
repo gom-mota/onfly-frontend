@@ -27,7 +27,7 @@ const useCities = () => {
     } catch (error) {
       loadingStatus.value = 'error'
 
-      throw new Error(error as string)
+      throw { error, customMessage: 'Erro ao carregar destinos' }
     }
   }
 

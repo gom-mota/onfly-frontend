@@ -33,7 +33,7 @@ const useHotels = () => {
 
       if (response) store.setList(response.data)
     } catch (error) {
-      throw new Error(error as string)
+      throw { error, customMessage: 'Erro ao carregar hotéis' }
     }
   }
 
@@ -47,7 +47,7 @@ const useHotels = () => {
 
       return response
     } catch (error) {
-      throw new Error(error as string)
+      throw { error, customMessage: 'Erro ao carregar detalhes do hotel' }
     }
   }
 

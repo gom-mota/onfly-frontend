@@ -63,7 +63,7 @@ const onChangePage = (page: number) => {
     <div v-else class="list-data--empty">
       <QIcon name="search_off" size="42px" color="grey-8" />
 
-      <span>Nenhum hotel encontrado. Refaça a busca.</span>
+      <span>Nenhum hotel encontrado.</span>
     </div>
   </div>
 </template>
