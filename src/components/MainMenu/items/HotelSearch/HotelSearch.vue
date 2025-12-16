@@ -17,7 +17,7 @@ const { handleGetCitiesList } = useCities()
 
 const placeId = ref<{ label: string; value: string } | undefined>(undefined)
 const placeTyped = ref<string>('')
-const placeOptions = ref<Array<{ label: string; value: string }>>([])
+const placeOptions = ref<Array<{ label: string; value: number }>>([])
 
 const onSubmit = () => {
   setParams({ filters: { ...params.filters, placeId: placeId.value?.value } })

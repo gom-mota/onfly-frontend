@@ -1,9 +1,19 @@
-export type IHotelAmenities = 'pool' | 'restaurant' | 'accessibility' | 'parking' | 'wifi' | 'air'
+export type IHotelAmenities =
+  | 'WI_FI'
+  | 'PARKING'
+  | 'POOL'
+  | 'RESTAURANT'
+  | 'ROOM_SERVICE'
+  | 'FITNESS_CENTER'
+  | 'STEAM_ROOM'
+  | 'PET_FRIENDLY'
+  | 'BAR'
+  | 'SPA'
 
 export interface IHotelData {
   id: string
   name: string
-  stars: number
+  stars: string
   totalPrice: number
   dailyPrice: number
   tax: number
@@ -12,7 +22,7 @@ export interface IHotelData {
   hasBreakFast: boolean
   hasRefundableRoom: boolean
   district: string
-  placeId: string
+  placeId: number
 }
 
 export interface IHotelFilters {

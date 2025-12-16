@@ -37,7 +37,7 @@ const formattedTaxes = props.taxes.toLocaleString('pt-BR', {
         </div>
 
         <div class="hotel-card__observations">
-          <div class="row items-center q-gutter-xs">
+          <div v-if="amenities.length > 0" class="row items-center q-gutter-xs">
             <AmenityIcon v-for="amenity in amenities" :key="amenity" :name="amenity" />
           </div>
 

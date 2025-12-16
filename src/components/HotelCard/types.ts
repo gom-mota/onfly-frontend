@@ -11,7 +11,7 @@ export interface IHotelCardProps {
   taxes: number
   hasBreakFast: boolean
   hasRefundableRoom: boolean
-  stars: number
+  stars: string
 }
 
 export interface IHotelCardEmits {

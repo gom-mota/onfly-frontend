@@ -1,5 +1,5 @@
 export interface ICityData {
-  placeId: string
+  placeId: number
   name: string
-  state: { name: string; uf: string }
+  state: { name: string; shortname: string }
 }
