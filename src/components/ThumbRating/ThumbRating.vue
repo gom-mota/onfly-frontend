@@ -11,7 +11,7 @@ const MAX_STARS = 5
       fit="cover"
       class="border-radius-inherit"
       height="100%"
-      loading-show-delay="6000"
+      loading-show-delay="2000"
     >
       <template v-slot:error>
         <div class="empty-image">

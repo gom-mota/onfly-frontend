@@ -32,18 +32,9 @@ const onClickViewDetails = (data: IHotelData) => {
     <div class="list-data">
       <template v-if="hasListData">
         <HotelCard
-          v-for="hotel in store.list.data"
-          :key="hotel.id"
-          :name="hotel.name"
-          :place="hotel.district"
-          :thumbSrc="hotel.thumb"
-          :stars="hotel.stars"
-          :totalPrice="hotel.totalPrice"
-          :dailyPrice="hotel.dailyPrice"
-          :taxes="hotel.tax"
-          :amenities="hotel.amenities"
-          :hasBreakFast="hotel.hasBreakFast"
-          :hasRefundableRoom="hotel.hasRefundableRoom"
+          v-for="(hotel, index) in store.list.data"
+          :key="`${hotel.id}-${index}`"
+          v-bind="hotel"
           @click-details="onClickViewDetails(hotel)"
         />
 

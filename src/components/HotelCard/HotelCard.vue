@@ -4,42 +4,31 @@ import ThumbRating from '@/components/ThumbRating/ThumbRating.vue'
 import AmenityIcon from '../AmenityIcon/AmenityIcon.vue'
 
 // Types
-import type { IHotelCardProps, IHotelCardEmits } from './types'
+import type { IHotelData } from '@/types/hotel'
 
-const props = defineProps<IHotelCardProps>()
+// Utils
+import { formatCurrency } from '@/utils/money'
 
-const emit = defineEmits<IHotelCardEmits>()
+const props = defineProps<IHotelData>()
 
-const formattedTotalPrice = (props.totalPrice / 1000).toLocaleString('pt-BR', {
-  currency: 'BRL',
-  style: 'currency',
-  minimumFractionDigits: 0,
-})
+const emit = defineEmits<{ (event: 'click-details'): void }>()
 
-const formattedDailyPrice = (props.dailyPrice / 1000).toLocaleString('pt-BR', {
-  currency: 'BRL',
-  style: 'currency',
-  minimumFractionDigits: 2,
-})
-
-const formattedTaxes = (props.taxes / 1000).toLocaleString('pt-BR', {
-  currency: 'BRL',
-  style: 'currency',
-  minimumFractionDigits: 2,
-})
+const formattedTotalPrice = formatCurrency(props.totalPrice / 1000, 'hideZeroCents')
+const formattedDailyPrice = formatCurrency(props.dailyPrice / 1000)
+const formattedTaxes = formatCurrency(props.tax / 1000)
 </script>
 
 <template>
   <div class="hotel-card">
     <div class="hotel-card__thumb">
-      <ThumbRating :stars="stars" :imagePath="thumbSrc" />
+      <ThumbRating :stars="stars" :imagePath="thumb" />
     </div>
 
     <div class="hotel-card__wrapper">
       <div class="hotel-card__main">
         <div class="hotel-card__title">
           <span class="text-subtitle1 text-weight-medium">{{ name }}</span>
-          <span class="text-caption text-grey">{{ place }}</span>
+          <span class="text-caption text-grey">{{ district }}</span>
         </div>
 
         <div class="hotel-card__observations">

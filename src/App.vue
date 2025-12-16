@@ -36,9 +36,11 @@ import MainMenu from './components/MainMenu/MainMenu.vue'
 
 .main-menu__wrapper {
   margin-bottom: $spacing-xlarge;
-  width: $breakpoint-main-container;
+  width: 100%;
+  max-width: $breakpoint-main-container;
   margin: 0 auto;
   margin-bottom: calc($spacing-xlarge + 1rem);
+  padding: 0 $spacing-regular;
 }
 
 .app {
@@ -58,7 +60,7 @@ import MainMenu from './components/MainMenu/MainMenu.vue'
     flex-direction: column;
     margin: auto;
     max-width: $breakpoint-main-container;
-    padding: $spacing-large 0;
+    padding: $spacing-large $spacing-regular;
   }
 }
 </style>
