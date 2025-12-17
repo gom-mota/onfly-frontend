@@ -21,6 +21,10 @@ const pagination = computed(() => store.params.page)
 
 const hasListData = computed(() => store.list.data.length > 0)
 
+const foundedHotelsCount = computed(() =>
+  store.list.count === 1 ? '1 hotel encontrado' : `${store.list.count} hotéis encontrados`,
+)
+
 const onClickViewDetails = (data: IHotelData) => {
   setSelectedHotel(data)
   isOpenHotelDetails.value = true
@@ -55,7 +59,7 @@ const onChangePage = (page: number) => {
             @update:model-value="onChangePage"
           />
 
-          <span>{{ store.list.count }} hotéis encontrados</span>
+          <span>{{ foundedHotelsCount }}</span>
         </div>
       </div>
     </template>
