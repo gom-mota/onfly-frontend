@@ -34,9 +34,11 @@ function handleNextImage() {
     <QImg :src="images[currentImageIndex]" fit="cover" class="border-radius-inherit" height="100%">
       <template v-slot:error>
         <div class="empty-image">
-          <QIcon name="image" size="42px" color="grey-6" />
+          <QIcon name="image" size="42px" color="grey-4" />
 
-          <span class="empty-image__text">Imagem não encontrada</span>
+          <div class="empty-image__text">
+            <span class="text-grey-4">Imagem não encontrada</span>
+          </div>
         </div>
       </template>
 
@@ -108,7 +110,7 @@ function handleNextImage() {
   gap: $spacing-medium;
   align-items: center;
   justify-content: center;
-  background-color: $color-info-500;
+  background-color: $color-info-200;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -116,6 +118,5 @@ function handleNextImage() {
 
 .empty-image__text {
   width: 100px;
-  color: $color-info-100;
 }
 </style>
